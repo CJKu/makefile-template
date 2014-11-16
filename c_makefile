@@ -1,0 +1,20 @@
+#-----------------------------------------------#
+#       Makefile for Unix systems               #
+#    using a GNU C compiler                     #
+#-----------------------------------------------#
+
+CC=gcc
+CFLAGS=-g
+#
+## Compiler flags:
+#       -g      -- Enable debugging
+
+count_words: count_words.o
+	$(CC) $(CFLAGS) $^ -o $@
+
+count_words.o: count_words.c
+	$(CC) $(CFLAGS) -c $<
+
+clean:
+	rm -f *.o
+	rm -f count_words
